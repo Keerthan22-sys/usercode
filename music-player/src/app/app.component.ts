@@ -41,9 +41,22 @@ resume() {
   this.musicService.resume();
 }
   // Task 8: Add next() method here
-
+next() {
+  const index = tracks.indexOf(this.state.activeTrack) + 1;
+  if(index < tracks.length)
+  {
+    this.state.activeTrack = tracks[index];
+    this.musicService.playNewFile(tracks[index]);
+  }
+}
   // Task 8: Add previous() method here
-
+previous() {
+  const index = tracks.indexOf(this.state.activeTrack) - 1;
+  if (index >= 0) {
+    this.state.activeTrack = tracks[index];
+    this.musicService.playNewFile(tracks[index]);
+  }
+}
   // Task 9: Add changePlaybackSpeed() method here
 
   
