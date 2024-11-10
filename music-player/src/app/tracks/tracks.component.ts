@@ -26,5 +26,9 @@ playTrack(file: any){
   this.musicService.playNewFile(file);
 }
   // Task 10: Add handleFavorites()) method here
+handleFavorites(addorRemoveCheck:boolean, index:any) {
+  const isFavorite = addorRemoveCheck === true ? true : false;
+  tracks[index].isFavorite = isFavorite;
+}
 
 }
