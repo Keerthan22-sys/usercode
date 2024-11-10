@@ -33,9 +33,13 @@ getFormattedTime(timeInSeconds: number) {
   return moment.utc(timeInSeconds * 1000).format('mm:ss');
 }
   // Task 7: Add pause() method here
-
+pause() {
+  this.musicService.pause();
+}
   // Task 7: Add resume() method here
-
+resume() {
+  this.musicService.resume();
+}
   // Task 8: Add next() method here
 
   // Task 8: Add previous() method here
