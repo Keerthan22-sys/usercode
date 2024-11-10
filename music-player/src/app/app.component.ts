@@ -14,7 +14,7 @@ export class AppComponent {
  state = MusicPlayerState;
  readonly tracks = tracks; 
   // Task 9: Declare required constants here
-  
+  playbackSpeeds = [1, 2, 3, 4, 5];
 
   constructor(
     // Task 6: Declare private variable here
@@ -58,6 +58,8 @@ previous() {
   }
 }
   // Task 9: Add changePlaybackSpeed() method here
-
+changePlaybackSpeed(speed: number) {
+  this.musicService.changePlaybackSpeed(speed);
+}
   
 }

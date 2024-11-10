@@ -4,10 +4,6 @@
 <router-outlet></router-outlet>
 
 <!-- Task 6+7+8+9: Add UI template here -->
-<mat-toolbar class="main-toolbar" routerLink="/">
-  <span>Music Player</span>
-</mat-toolbar>
-
 <router-outlet></router-outlet>
 
 <div class="progress-container">
@@ -39,6 +35,19 @@
           [disabled]="this.tracks.indexOf(this.state.activeTrack) === this.tracks.length - 1 || tracks.indexOf(this.state.activeTrack) === -1"
           (click)="next()" matTooltip="Next Track" [disabled]="tracks.indexOf(this.state.activeTrack) === -1">
           <mat-icon mat-list-icon>skip_next</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu" matTooltip="Playback Speed"
+          [disabled]="tracks.indexOf(this.state.activeTrack) === -1">
+          <mat-icon mat-list-icon>play_circle_filled</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngFor="let speed of playbackSpeeds" (click)="changePlaybackSpeed(speed)">{{speed}}x</button>
+        </mat-menu>
+        <button mat-button (click)="musicService.playNewFile(state.activeTrack)" matTooltip="Replay Track"
+          [disabled]="tracks.indexOf(this.state.activeTrack) === -1">
+          <mat-icon mat-list-icon>replay</mat-icon>
         </button>
       </div>
     </mat-toolbar-row>
