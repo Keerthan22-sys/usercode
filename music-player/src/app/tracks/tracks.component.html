@@ -4,3 +4,14 @@
 </mat-toolbar>
 
 <!-- Task 5+10: Add UI template here -->
+<mat-list class="track-list">
+    <mat-list-item *ngFor="let file of tracks; let i = index;">
+        <img mat-list-icon [src]="file.img" width="57px" height="52px">
+        <h2 mat-line matListItemTitle class="track-name" (click)="playTrack(file)">{{ file.name }}</h2>
+        <h7 mat-line class="artist-name" (click)="playTrack(file)">by {{file.artist }}</h7>
+        <mat-icon color="primary" *ngIf="tracks.indexOf(this.state.activeTrack) === i" style="font-size: 35px;">
+            headphones</mat-icon>
+        
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

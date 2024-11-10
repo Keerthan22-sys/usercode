@@ -9,6 +9,6 @@ export const MusicPlayerState = {
         name: '',
         artist: '',
         img: '',
-        isFavotire: false
+        isFavorite: false
     }
 }
